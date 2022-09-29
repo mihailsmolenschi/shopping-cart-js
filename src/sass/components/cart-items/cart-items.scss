@@ -1,0 +1,153 @@
+@import "../../helpers/mixins.scss";
+
+.shopping-cart--message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  font-size: 2rem;
+  margin-bottom: 2.4rem;
+
+  .link--home {
+    background-color: #ffa500;
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+
+    margin-top: 10px;
+
+    transition: all 0.2s;
+
+    &:hover,
+    &:active {
+      background-color: #ffab0e;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .total {
+    font-size: 2rem;
+  }
+
+  .btn-container {
+    display: flex;
+    gap: 2rem;
+
+    .btn-checkout,
+    .btn-remove-all {
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-checkout {
+      background-color: green;
+    }
+    .btn-remove-all {
+      background-color: red;
+    }
+  }
+}
+
+.shopping-cart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+  margin: 0 auto;
+  width: 320px;
+
+  .cart-item {
+    background-color: #fff;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+
+    border-radius: 10px;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    width: 320px;
+
+    &--img {
+      width: 100px;
+      height: 110px;
+    }
+
+    &--details {
+      margin: 10px 0;
+      display: flex;
+      flex: 1 0 auto;
+      justify-content: space-between;
+
+      .title {
+        font-size: 1.8rem;
+      }
+
+      .price-quantity-total {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        flex: 1 0 auto;
+        gap: 5px;
+        margin-top: 4px;
+
+        .price {
+          font-size: 1.4rem;
+        }
+
+        .total-price {
+          font-size: 1.8rem;
+          background-color: #000;
+          color: #fff;
+          padding: 0 4px;
+          border-radius: 4px;
+          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .quantity-container {
+          @include quantity-container;
+
+          padding: 4px;
+          border-radius: 4px;
+
+          background-color: #fff;
+          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+
+          .btn-quantity {
+            @include btn-quantity;
+
+            &--remove {
+              @include btn-quantity-remove();
+            }
+
+            &--add {
+              @include btn-quantity-add();
+            }
+          }
+
+          .quantity {
+            @include quantity;
+            font-size: 1.4rem;
+
+            color: #000;
+          }
+        }
+      }
+    }
+
+    .cart--remove {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+}

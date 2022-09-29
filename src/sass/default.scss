@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+  // ? default font size 10px
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Roboto Slab", serif;
+}
+
+// remove styles from <a>
+a:link,
+a:visited {
+  text-decoration: none;
+  color: #fff;
+}

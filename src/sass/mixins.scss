@@ -1,0 +1,29 @@
+@mixin ammount-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+@mixin btn-ammount {
+  display: inline-block;
+  cursor: pointer;
+  width: 1.6rem;
+  height: 1.6rem;
+  border: none;
+  background-color: #fff;
+  background-size: cover;
+}
+
+@mixin btn-ammount-remove {
+  background-image: url(../img/icons/dash-lg.svg);
+}
+
+@mixin btn-ammount-add {
+  background-image: url(../img/icons/plus-lg.svg);
+}
+
+@mixin ammount {
+  font-size: 2rem;
+  color: #4e4e4e;
+}

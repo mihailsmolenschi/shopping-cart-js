@@ -1,0 +1,106 @@
+$item-width: 200px;
+$item-img--height: 220px;
+
+@import "../../helpers/mixins.scss";
+
+.main {
+  margin: 4rem 0;
+
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    font-size: 3.2rem;
+    margin-bottom: 4rem;
+
+    align-self: center;
+  }
+
+  .items-container {
+    display: grid;
+    grid-template-columns: repeat(4, $item-width);
+    gap: 3rem;
+    row-gap: 3rem;
+    justify-content: center;
+    margin-bottom: 4rem;
+
+    @media (max-width: 1000px) {
+      grid-template-columns: repeat(3, $item-width);
+    }
+
+    @media (max-width: 700px) {
+      grid-template-columns: repeat(2, $item-width);
+    }
+
+    @media (max-width: 500px) {
+      grid-template-columns: $item-width;
+    }
+
+    .item {
+      box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+
+      border-radius: 6px;
+      overflow: hidden;
+      transition: all 0.2s;
+
+      &--img {
+        display: inline-block;
+        width: $item-width;
+        height: $item-img--height;
+
+        transition: transform 1s;
+      }
+
+      &--img:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    .item:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .item--details {
+      padding: 1rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      .item--title {
+        font-size: 1.8rem;
+      }
+      .item--description {
+        font-size: 1.4rem;
+      }
+      .buy-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
+
+        .price {
+          font-size: 2.4rem;
+          font-weight: 700;
+        }
+        .quantity-container {
+          @include quantity-container;
+
+          .btn-quantity {
+            @include btn-quantity;
+
+            &--remove {
+              @include btn-quantity-remove();
+            }
+            &--add {
+              @include btn-quantity-add();
+            }
+          }
+          .quantity {
+            @include quantity;
+          }
+        }
+      }
+    }
+  }
+}
